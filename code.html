@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="grass-background"></div>
+<h1 class="header">X-Fortunes racing</h1>
+<div class="background-image"></div>
+<div class="background-blur"></div>
+<div>
+  <label for="driverSelect">Select driver: </label>
+  <select id="driverSelect" onchange="handleDriverChange()">
+    <option value="0">JAYDEN</option>
+    <option value="1">SASHA</option>
+    <option value="2">CHRIS N</option>
+    <option value="3">GEORGE</option>
+    <option value="4">ADAM</option>
+    <option value="5">VICTOR</option>
+  </select>
+  <label for="amount">Enter your deposit: </label>
+  <input type="number" id="amount">
+  <button onclick="moveCar()">Let's go faster!</button>
+</div>
+<!-- Турнирная таблица -->
+<div id="tournament-table-container">
+  <table id="tournament-table">
+    <tr>
+      <th>Driver: </th>
+      <th>Position: </th>
+    </tr>
+  </table>
+</div>
+
+<div class="race-container">
+
+
+<div class="road-container">
+      <div class="start-line"></div>
+      <div class="car" id="car0">
+        <div class="driver-info">
+          <div class="driver-name">JAYDEN</div>
+          <div class="driver-position">Position: 0%</div>
+        </div>
+      </div>
+      <div class="flag" id="flag0"></div>
+      <div class="flag-text" id="flag-text0">VICTORY!</div>
+    <div class="road" id="road1">
+    </div>
+  </div>
+  
+  <div class="road-container">
+    
+      <div class="start-line"></div>
+      <div class="car" id="car1">
+        <div class="driver-info">
+          <div class="driver-name">SASHA</div>
+          <div class="driver-position">Position: 0%</div>
+        </div>
+      </div>
+      <div class="flag" id="flag1"></div>
+      <div class="flag-text" id="flag-text1">VICTORY!</div>
+	  <div class="road" id="road2">
+    </div>
+	</div>
+	
+	
+	 <div class="road-container">
+    
+      <div class="start-line"></div>
+      <div class="car" id="car2">
+        <div class="driver-info">
+          <div class="driver-name">CHRIS N</div>
+          <div class="driver-position">Position: 0%</div>
+        </div>
+      </div>
+      <div class="flag" id="flag2"></div>
+      <div class="flag-text" id="flag-text2">VICTORY!</div>
+	  <div class="road" id="road3">
+    </div>
+	
+  </div>
+  
+  
+  
+<div class="firework" id="firework"></div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<style>
+  .race-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 24px;
+	z-index:-3;
+  }
+  .background-image {
+    width: 200%;
+    height: 180px;
+    background-image: url("city.png");
+    position: absolute;
+    left: 0;
+    right: 0;
+	bottom:800px;
+    display: block;
+    z-index: -1;
+    background-repeat: repeat-x;
+}
+<!-- .sky-background { -->
+    <!-- width: 200%; -->
+    <!-- height: 290px; -->
+    <!-- background-image: url("sky.jpg"); /* Путь к изображению с небом */ -->
+    <!-- position: absolute; -->
+    <!-- left: 0; -->
+    <!-- right: 0; -->
+    <!-- bottom: 840px; -->
+    <!-- display: block; -->
+    <!-- z-index: -2; -->
+
+<!-- } -->
+
+.background-image {
+    width: 200%;
+    height: 320px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 840px;
+    display: block;
+    background-repeat: repeat-x;
+    animation: city 35s linear infinite;
+}
+ @keyframes city {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+.day {
+    background-image: url("day.jpg");
+    z-index: -2;
+	width:200%;
+	height:100%;
+	
+ animation: day 45s linear infinite;
+}
+ @keyframes day {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+.night {
+    background-image: url("night.jpg");
+    z-index: -2;
+    display: none;
+animation: night 45s linear infinite;
+}
+ @keyframes night {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6; /* Прозрачность черного фона */
+    backdrop-filter: blur(20px); /* Измените значение размытия по вашему вкусу */
+    z-index: -2;
+  }
+  h1 {
+    border-radius: 30px;
+    width: 280px;
+    position: relative;
+    color: orange;
+    z-index: 1;
+    top: 10px;
+    backdrop-filter: blur(3px); /* Добавляем размытие */
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px; /* Добавляем отступ для лучшего визуального эффекта */
+    text-align: center;
+  }
+  .road-container {
+    height: 200px;
+	top: 53px;
+	padding: 0px;
+    width: 101%;
+    overflow: hidden;
+    position: relative;
+  }
+  .road {
+    height: 200px;
+    width: 200%;
+    background-image: url("road.jpg");
+    background-repeat: repeat-x;
+    animation: highway 15s linear infinite;
+  }
+  @keyframes highway {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  
+  .car {
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    background-image: url('car2.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 1;
+    left:0;
+    margin-top: -70px;
+    transform-origin: bottom;
+    z-index: 5;
+  }
+  
+  .bushes {
+  width: 200%; /* Занимает всю ширину контейнера дороги */
+  height: 200px; /* Высота кустов (можете изменить по своему усмотрению) */
+  background-image: url('grass1.png'); /* Путь к изображению с кустами */
+  background-repeat: repeat-x; /* Повторять изображение горизонтально */
+  position: absolute; /* Позиционируется относительно контейнера дороги */
+  bottom: 0; /* Прикрепить кусты к нижней части контейнера дороги */
+  z-index: 7; /* Разместить кусты за дорогой */
+  animation: bushes 15s linear infinite;
+	
+}
+ @keyframes bushes {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .bushes4 {
+  width: 200%; /* Занимает всю ширину контейнера дороги */
+  height: 200px; /* Высота кустов (можете изменить по своему усмотрению) */
+  background-image: url('grass2.png'); /* Путь к изображению с кустами */
+  background-repeat: repeat-x; /* Повторять изображение горизонтально */
+  position: absolute; /* Позиционируется относительно контейнера дороги */
+  bottom: 0; /* Прикрепить кусты к нижней части контейнера дороги */
+  z-index: 7; /* Разместить кусты за дорогой */
+  animation: bushes 15s linear infinite;
+	
+}
+ @keyframes bushes {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .bushes1 {
+  width: 200%; /* Занимает всю ширину контейнера дороги */
+  height: 200px; /* Высота кустов (можете изменить по своему усмотрению) */
+  background-image: url('grass11.png'); /* Путь к изображению с кустами */
+  background-repeat: repeat-x; /* Повторять изображение горизонтально */
+  position: absolute; /* Позиционируется относительно контейнера дороги */
+  bottom: 0; /* Прикрепить кусты к нижней части контейнера дороги */
+  z-index: 7; /* Разместить кусты за дорогой */
+  animation: bushes1 15s linear infinite;
+	
+}
+ @keyframes bushes1 {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .bushes2 {
+  width: 200%; /* Занимает всю ширину контейнера дороги */
+  height: 80px; /* Высота кустов (можете изменить по своему усмотрению) */
+  background-image: url('bushes2.png'); /* Путь к изображению с кустами */
+  background-repeat: repeat-x; /* Повторять изображение горизонтально */
+  position: absolute; /* Позиционируется относительно контейнера дороги */
+  bottom: 0; /* Прикрепить кусты к нижней части контейнера дороги */
+  z-index: 7; /* Разместить кусты за дорогой */
+  animation: bushes2 15s linear infinite;
+	
+}
+ @keyframes bushes2 {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .bushes3 {
+  width: 200%; /* Занимает всю ширину контейнера дороги */
+  height: 200px; /* Высота кустов (можете изменить по своему усмотрению) */
+  background-image: url('grass3.png'); /* Путь к изображению с кустами */
+  background-repeat: repeat-x; /* Повторять изображение горизонтально */
+  position: absolute; /* Позиционируется относительно контейнера дороги */
+  bottom: 0; /* Прикрепить кусты к нижней части контейнера дороги */
+  z-index: 7; /* Разместить кусты за дорогой */
+  animation: bushes3 15s linear infinite;
+	
+}
+ @keyframes bushes3 {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+   
+  .sasha-car {
+  text-align: center;
+  width: 240px;
+  height: 240px;
+  background-image: url('car_sasha.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -50px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+.jayden-car {
+  text-align: center;
+  width: 500px;
+  height: 500px;
+  background-image: url('car_jayden.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -70px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+.tom-car {
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  background-image: url('car_tom.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -75px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+.conor-car {
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  background-image: url('car_conor.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -80px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+.ryan-car {
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  background-image: url('car_ryan.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -70px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+.maya-car {
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  background-image: url('car_maya.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -70px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+.adam-car {
+  text-align: center;
+  width: 280px;
+  height: 280px;
+  background-image: url('car_adam.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -63px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+.chris-car {
+  text-align: center;
+  width: 500px;
+  height: 500px;
+  background-image: url('car_chris_n.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -68px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+.george-car {
+  text-align: center;
+  width: 500px;
+  height: 500px;
+  background-image: url('car_george.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -70px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+.brian-car {
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  background-image: url('scooter.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -70px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+.victor-car {
+  text-align: center;
+  width: 300px;
+  height: 300px;
+  background-image: url('car_victor.gif'); /* Укажите путь к новому изображению */
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 1;
+  left: 0;
+  margin-top: -70px;
+  transform-origin: bottom;
+  z-index: 5;
+}
+  .flag {
+    width: 110px;
+    height: 110px;
+    background-image: url('flag.gif');
+    background-size: cover;
+    position: absolute;
+    top: 90px;
+    right: 0px;
+    z-index: 9;
+    visibility: visible;
+    transform: translateY(-70%);
+  }
+  .flag-text {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 320px;
+    font-size: 28px;
+    color: orange;
+    transform: translateY(-50%);
+	z-index:5;
+  }
+  .victory-flag {
+  width: 100px; /* Желаемая ширина изображения */
+  height: 100px; /* Автоматическая высота для сохранения пропорций */
+  right: 320px;
+  margin-top: 5px;
+}
+  
+  select {
+    margin-bottom: 10px;
+  }
+  div > label,
+  div > select,
+  div > input,
+  div > button {
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+
+  .driver-info {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    position: relative;
+    color: white;
+    top: 110px;
+    left: 0%;
+    width: 160px;
+    border-radius: 5px;
+  }
+  .driver-position {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    width: 155px;
+    top: -27px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #tournament-table-container {
+    position: fixed;
+    top: 5px;
+    right: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 5;
+    font-size: 10px;
+  }
+  
+  .support-message {
+  position: absolute;
+  background-image: url('cloud.png'); /* Укажите путь к вашему изображению */
+  background-size: contain; /* Изображение будет сохранять пропорции и вписываться в блок */
+  background-repeat: no-repeat; /* Запретить повторение фона */
+  background-position: center; /* Выравнивание изображения по центру */
+  color: white; /* Цвет текста */
+  padding: 40px;
+  font-size: 13px;
+  top: -30px; /* Регулируйте вертикальное положение облака, чтобы оно было спереди автомобиля */
+  left: 180%; /* Регулируйте горизонтальное положение облака по центру контейнера */
+  z-index: 10;
+  display: inline-block; /* Для того чтобы ширина облака автоматически подстраивалась под содержимое */
+}
+
+#santa-claus {
+  width: auto; /* Установите подходящую ширину */
+  position: absolute;
+  top: 100px; /* Регулируйте вертикальную позицию по вашему усмотрению */
+  left: 700px; /* Регулируйте горизонтальную позицию по вашему усмотрению */
+animation: santaMove 25s linear infinite; /* 25s - время анимации, linear - тип анимации, infinite - бесконечное повторение */
+}
+
+@keyframes santaMove {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%; /* Горизонтальная позиция, в которую Санта Клаус передвигается (в данном случае, до конца контейнера) */
+  }
+  
+  #ded {
+  width: auto; /* Установите подходящую ширину */
+  position: absolute;
+  top: 100px; /* Регулируйте вертикальную позицию по вашему усмотрению */
+  left: 700px; /* Регулируйте горизонтальную позицию по вашему усмотрению */
+animation: ded 25s linear infinite; /* 25s - время анимации, linear - тип анимации, infinite - бесконечное повторение */
+}
+
+@keyframes ded {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%; /* Горизонтальная позиция, в которую Санта Клаус передвигается (в данном случае, до конца контейнера) */
+  }
+  
+}
+
+</style>
+<link href="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/snow.min.css" rel="stylesheet">
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/Snow.min.js"></script>
+<script>
+	new Snow ();
+</script>
+<audio id="carAudio" src="car_sound.mp3"></audio>
+<div class="grass-background"></div>
+<h1 class="header">Winter Is Coming</h1>
+<div class="background-image">
+</div>
+<!-- <div class="sky-background"></div> <!-- Небесный фон -->
+<div class="background-image day"><img src="santa1.gif" alt="Санта Клаус" id="ded"></div><!-- Небесный фон -->
+<div class="background-image night"><img src="santa.gif" alt="Санта Клаус" id="santa-claus"></div><!-- Небесный фон -->
+<div id="snow-container"></div>
+
+<div>
+  <label for="driverSelect">Select driver: </label>
+  
+ <select id="driverSelect" onchange="handleDriverChange()">
+    <option value="0">SOPHIA</option>
+    <option value="1">GIORGIO</option>
+    <option value="2">RAFFAELE</option>
+    <option value="3">GIANNI</option>
+  </select>
+  
+  <label for="amount">Enter your deposit: </label>
+  <input type="number" id="amount">
+  <button onclick="moveCar()">Let's go faster!</button>
+</div>
+<!-- Турнирная таблица -->
+<div id="tournament-table-container">
+  <table id="tournament-table">
+    <tr>
+      <th>Driver: </th>
+      <th>Position: </th>
+    </tr>
+  </table>
+</div>
+
+<div class="race-container">
+
+<div class="road-container">
+    
+      <div class="start-line"></div>
+      <div class="car maya-car" id="car0">
+        <div class="driver-info">
+          <div class="driver-name">SOPHIA</div>
+          <div class="driver-position">Position: 0%</div>
+		  <div class="support-message" id="support-message">
+  Вперед ребята!
+</div>
+        </div>
+      </div>
+      <div class="flag" id="flag0"></div>
+      <div class="flag-text" id="flag-text0">VICTORY!</div>
+	  <div class="road" id="road1">
+    </div>
+<div class="bushes1"></div>
+  </div>
+  
+  <div class="road-container">
+      <div class="start-line"></div>
+      <div class="car george-car" id="car1">
+        <div class="driver-info">
+          <div class="driver-name">GIORGIO</div>
+          <div class="driver-position">Position: 0%</div>
+        </div>
+      </div>
+      <div class="flag" id="flag1"></div>
+      <div class="flag-text" id="flag-text1">VICTORY!</div>
+	  <div class="road" id="road2">
+    </div>
+	<div class="bushes4"></div>
+	</div>
+	
+	 <div class="road-container">
+    
+      <div class="start-line"></div>
+      <div class="car jayden-car" id="car2">
+        <div class="driver-info">
+          <div class="driver-name">RAFFAELE</div>
+          <div class="driver-position">Position: 0%</div>
+        </div>
+      </div>
+      <div class="flag" id="flag2"></div>
+      <div class="flag-text" id="flag-text2">VICTORY!</div>
+	  <div class="road" id="road3">
+    </div>
+			<div class="bushes2"></div>
+  </div>
+  
+   <div class="road-container">
+    
+      <div class="start-line"></div>
+      <div class="car chris-car" id="car3">
+        <div class="driver-info">
+          <div class="driver-name">GIANNI</div>
+          <div class="driver-position">Position: 0%</div>
+        </div>
+      </div>
+      <div class="flag" id="flag3"></div>
+      <div class="flag-text" id="flag-text3">VICTORY!</div>
+	  <div class="road" id="road4">
+    </div>
+		<div class="bushes"></div>
+  </div>
+  
+  </div>
+
+<script>
+ var driversData = [
+    {
+      "name": "SOPHIA",
+      "roadLength": 60000,
+      "position": 0
+    },
+    {
+      "name": "GIORGIO",
+      "roadLength": 60000,
+      "position": 0
+    },
+	{
+      "name": "RAFFAELE",
+      "roadLength": 100000,
+      "position": 0
+    },
+	{
+      "name": "GIANNI",
+      "roadLength": 30000,
+      "position": 0
+    }
+  ];
+  
+  // Создайте массив сообщений поддержки для водителя TOM
+var tomSupportMessages = [
+  "Merry Christmas!",
+  "Ho! Ho! Ho!",
+  "Let's not freeze!",
+  "Happy New Year!",
+  "Need to warm up!",
+  "Brrr...",
+  // Добавьте другие сообщения поддержки для TOM
+];
+
+// Создайте переменную, которая будет отслеживать индекс текущего сообщения поддержки для TOM
+var tomSupportMessageIndex = 0;
+
+// Получите элемент, который будет отображать сообщения поддержки
+var supportMessageElement = document.getElementById("support-message");
+
+// Напишите функцию, которая будет изменять текст сообщения поддержки каждые несколько секунд
+function changeSupportMessage() {
+  supportMessageElement.textContent = tomSupportMessages[tomSupportMessageIndex];
+  tomSupportMessageIndex = (tomSupportMessageIndex + 1) % tomSupportMessages.length;
+}
+
+// Вызовите функцию changeSupportMessage после загрузки страницы
+window.addEventListener("load", function() {
+  // Вызовите функцию changeSupportMessage сразу после загрузки страницы
+  changeSupportMessage();
+  
+  // Настройте вызов этой функции с помощью setInterval, чтобы сообщения поддержки менялись автоматически каждые несколько секунд
+  setInterval(changeSupportMessage, 5000); // Изменяйте сообщение каждые 5 секунд
+});
+
+  function handleDriverChange() {
+    var selectedDriver = parseInt(document.getElementById("driverSelect").value);
+    var car = document.querySelector(".car" + selectedDriver);
+    var driver = driversData[selectedDriver];
+    var driverNameElement = car.querySelector(".driver-name");
+    var driverPositionElement = car.querySelector(".driver-position");
+    driverNameElement.textContent = driver.name;
+    driverPositionElement.textContent = "Position: " + (driver.position * 100).toFixed(2) + "%";
+    car.style.left = (driver.position * 100) + "%";
+    localStorage.setItem("selectedDriver", selectedDriver);
+    updateTournamentTable();
+  }
+  
+  function playCarAudio() {
+  var audio = document.getElementById("carAudio");
+  audio.play();
+}
+
+
+function moveCar(selectedDriver) {
+  var driver = driversData[selectedDriver];
+  var car = document.getElementById("car" + selectedDriver);
+  var driverPositionElement = car.querySelector(".driver-position");
+ 
+  var startPosition = driver.position * 100;
+  var endPosition = (driver.position * (100 - car.offsetWidth / window.innerWidth * 100));
+  var animationDuration = 100; // Продолжительность анимации в миллисекундах (5 секунд)
+
+  var startTime;
+  function animate(time) {
+    if (!startTime) startTime = time;
+    var progress = (time - startTime) / animationDuration;
+    if (progress < 1) {
+      var currentPosition = startPosition + (endPosition - startPosition) * progress;
+      car.style.left = currentPosition + "vw";
+      driverPositionElement.textContent = "Position: " + (currentPosition * driver.roadLength / 100).toFixed(2) + "%";
+      requestAnimationFrame(animate);
+    } else {
+      car.style.left = endPosition + "vw";
+      driverPositionElement.textContent = "Position: " + (driver.position * 100).toFixed(2) + "%";
+      if (driver.position === 1) {
+        showVictory(selectedDriver);
+      }
+    }
+  }
+ 
+  requestAnimationFrame(animate);
+}
+
+// Обновляем позицию водителя Sophia
+driversData[0].position = 17713 / driversData[0].roadLength;
+// Обновляем позицию водителя Giorgio
+driversData[1].position = 6651 / driversData[1].roadLength;
+// Обновляем позицию водителя Raffaele
+driversData[2].position = 8978 / driversData[2].roadLength;
+// Обновляем позицию водителя Gianni
+driversData[3].position =  7523/ driversData[3].roadLength;
+
+
+moveCar(0); // Переместить автомобиль первого водителя
+moveCar(1); // Переместить автомобиль второго водителя
+moveCar(2); // Переместить автомобиль второго водителя
+moveCar(3); // Переместить автомобиль второго водителя
+
+  function showVictory(driverIndex) {
+    var flag = document.getElementById("flag" + driverIndex);
+   flag.style.backgroundImage = "url('finish.gif')";
+flag.classList.add("victory-flag"); // Добавляем новый класс
+    var flagText = document.getElementById("flag-text" + driverIndex);
+    flagText.style.display = "block";
+	
+	// Добавьте код для изменения флага SASHA
+  if (driverIndex === "1") { // "1" - индекс водителя SASHA
+    var sashaFlag = document.querySelector(".sasha-flag");
+    sashaFlag.style.backgroundImage = "url('new-flag.gif')"; // Замените 'new-flag.gif' на путь к новому изображению флага
+  }
+}
+
+
+//смена дня и ночи
+function toggleDayNight() {
+    var dayBackground = document.querySelector(".background-image.day");
+    var nightBackground = document.querySelector(".background-image.night");
+
+    if (dayBackground.style.display === "none") {
+        dayBackground.style.display = "block";
+        nightBackground.style.display = "none";
+    } else {
+        dayBackground.style.display = "none";
+        nightBackground.style.display = "block";
+    }
+}
+
+// Вызывайте функцию toggleDayNight каждые 5 секунд
+setInterval(toggleDayNight, 10000); // 5000 миллисекунд = 5 секунд
+
+   function updateTournamentTable() {
+    var tournamentTable = document.getElementById("tournament-table");
+    var selectedDriver = document.getElementById("driverSelect").value;
+    var driver = driversData[selectedDriver];
+    var currentPosition = driver.position * 100;
+    driversData.sort(function(a, b) {
+      return b.position - a.position;
+    });
+    for (var i = 0; i < driversData.length; i++) {
+      var currentDriver = driversData[i];
+      var driverRow = tournamentTable.querySelector("tr[data-driver='" + currentDriver.name + "']");
+      if (!driverRow) {
+        driverRow = document.createElement("tr");
+        driverRow.setAttribute("data-driver", currentDriver.name);
+        tournamentTable.appendChild(driverRow);
+      }
+      var position = i + 1;
+      var positionText = position + (position === 1 ? "st" : position === 2 ? "nd" : position === 3 ? "rd" : "th");
+      driverRow.innerHTML = `
+        <td>${currentDriver.name}</td>
+        <td>${positionText}</td>
+      `;
+    }
+  }
+  updateTournamentTable();
+
+	// Вызывайте функцию для автообновления страницы каждые 1 hour
+ window.addEventListener("load", function() {
+  setInterval(function() {
+    location.reload();
+  }, 900000);
+});
+	
+</script>
+</body>
+</html>

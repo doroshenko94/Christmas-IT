@@ -1,0 +1,155 @@
+ .race-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .background-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 170px;
+      background-image: url('fans2.gif'); /* Замените на ваш путь */
+      background-repeat: repeat-x;
+      z-index: -1;
+    }
+    .header-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0.6; /* Прозрачность черного фона */
+      backdrop-filter: blur(20px); /* Измените значение размытия по вашему вкусу */
+      z-index: -2;
+    }
+    h1 {
+      border-radius: 30px;
+      width: 280px;
+      position: relative;
+      color: #E0E0E0;
+      z-index: 1;
+      top: 10px;
+      backdrop-filter: blur(3px); /* Добавляем размытие */
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px; /* Добавляем отступ для лучшего визуального эффекта */
+      text-align: center;
+    }
+    .road {
+      height: 200px;
+    width: 500%;
+    display: block;
+    background-image: url("road.jpg");
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-repeat: repeat-x;
+    animation: highway 5s linear infinite;
+    }
+    .start-line {
+      position: absolute;
+      width: 100%;
+      height: 7px;
+      bottom: 40px;
+
+    }
+    .start-line::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 5px;
+      bottom: 0;
+      color: yellow;
+      border-top: 5px dashed #fff; /* Используйте dashed для пунктирного бордера */
+    }
+    .car {
+      text-align: center; /* Центрирование текста внутри автомобиля */
+      width: 200px;
+      height: 200px;
+      background-image: url('car2.gif');
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      bottom: 1;
+      left: 0;
+      transform-origin: bottom;
+	   z-index:4;
+    }
+    .flag {
+      width: 70px;
+      height: 50px;
+      background-image: url('flag.png');
+      background-size: cover;
+      position: absolute;
+      top: 20%;
+      right: 0px;
+	  z-index:1;
+      visibility: visible;
+      transform: translateY(-50%);
+    }
+    .flag-text {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 220px;
+      font-size: 24px;
+      color: red;
+      transform: translateY(-50%);
+    }
+    select {
+      margin-bottom: 10px;
+    }
+    div > label,
+    div > select,
+    div > input,
+    div > button {
+      margin-bottom: 10px;
+      background-color: rgba(255, 255, 255, 0.9); /* Прозрачный белый фон */
+      padding: 8px;
+      border-radius: 5px;
+    }
+    .grass-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('grass.jpg'); /* Замените на ваш путь к картинке травы */
+      background-repeat: repeat;
+      z-index: -3;
+    }
+    .driver-info {
+	background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      position: relative; /* Для корректного позиционирования */
+      color: white;
+      top: 15px;
+	  width:120px;
+	  border-radius: 5px;
+    }
+    .driver-position {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      font-size: 14px;
+      padding: 5px;
+      border-radius: 5px;
+      position: absolute;
+      width: 110px;
+      top: -27px; /* Поднимаем позицию над именем водителя */
+      left: 50%; /* Центрируем по горизонтали */
+      transform: translateX(-50%); /* Центрируем по горизонтали */
+    }
+    #tournament-table-container {
+      position: fixed;
+      top: 5px;
+      right: 10px;
+      background-color: white;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 5;
+      font-size: 12px;
+    }
