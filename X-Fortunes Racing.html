@@ -553,7 +553,7 @@ animation: ded 25s linear infinite; /* 25s - время анимации, linear
  <select id="driverSelect" onchange="handleDriverChange()">
     <option value="0">SOPHIA</option>
     <option value="1">GIORGIO</option>
-    <option value="2">RAFFAELE</option>
+    <option value="2">MIRKO</option>
     <option value="3">GIANNI</option>
   </select>
   
@@ -612,7 +612,7 @@ animation: ded 25s linear infinite; /* 25s - время анимации, linear
       <div class="start-line"></div>
       <div class="car jayden-car" id="car2">
         <div class="driver-info">
-          <div class="driver-name">RAFFAELE</div>
+          <div class="driver-name">MIRKO</div>
           <div class="driver-position">Position: 0%</div>
         </div>
       </div>
@@ -645,22 +645,22 @@ animation: ded 25s linear infinite; /* 25s - время анимации, linear
  var driversData = [
     {
       "name": "SOPHIA",
-      "roadLength": 60000,
+      "roadLength": 65000,
       "position": 0
     },
     {
       "name": "GIORGIO",
-      "roadLength": 60000,
+      "roadLength": 65000,
       "position": 0
     },
 	{
-      "name": "RAFFAELE",
-      "roadLength": 100000,
+      "name": "MIRKO",
+      "roadLength": 20000,
       "position": 0
     },
 	{
       "name": "GIANNI",
-      "roadLength": 30000,
+      "roadLength": 50000,
       "position": 0
     }
   ];
@@ -747,13 +747,13 @@ function moveCar(selectedDriver) {
 }
 
 // Обновляем позицию водителя Sophia
-driversData[0].position = 60000 / driversData[0].roadLength;
+driversData[0].position = 1719 / driversData[0].roadLength;
 // Обновляем позицию водителя Giorgio
-driversData[1].position = 52744 / driversData[1].roadLength;
-// Обновляем позицию водителя Raffaele
-driversData[2].position = 12882 / driversData[2].roadLength;
+driversData[1].position = 0 / driversData[1].roadLength;
+// Обновляем позицию водителя Mirko
+driversData[2].position = 273 / driversData[2].roadLength;
 // Обновляем позицию водителя Gianni
-driversData[3].position =  25228/ driversData[3].roadLength;
+driversData[3].position =  5155 / driversData[3].roadLength;
 
 
 moveCar(0); // Переместить автомобиль первого водителя
