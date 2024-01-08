@@ -103,7 +103,7 @@ animation: night 45s linear infinite;
     border-radius: 30px;
     width: 280px;
     position: relative;
-    color: orange;
+    color: rgb(13, 203, 236);
     z-index: 1;
     top: 10px;
     backdrop-filter: blur(3px); /* Добавляем размытие */
@@ -280,8 +280,8 @@ animation: night 45s linear infinite;
 }
 .tom-car {
   text-align: center;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
   background-image: url('car_tom.gif'); /* Укажите путь к новому изображению */
   background-size: contain;
   background-repeat: no-repeat;
@@ -350,8 +350,8 @@ animation: night 45s linear infinite;
 }
 .chris-car {
   text-align: center;
-  width: 500px;
-  height: 500px;
+  width: 700px;
+  height: 700px;
   background-image: url('car_chris_n.gif'); /* Укажите путь к новому изображению */
   background-size: contain;
   background-repeat: no-repeat;
@@ -405,13 +405,13 @@ animation: night 45s linear infinite;
   z-index: 5;
 }
   .flag {
-    width: 110px;
-    height: 110px;
-    background-image: url('flag.gif');
+    width: 220px;
+    height: 140px;
+    background-image: url('flag.png');
     background-size: cover;
     position: absolute;
-    top: 90px;
-    right: 0px;
+    top: 110px;
+    right: 10px;
     z-index: 9;
     visibility: visible;
     transform: translateY(-70%);
@@ -444,6 +444,7 @@ animation: night 45s linear infinite;
     background-color: rgba(255, 255, 255, 0.9);
     padding: 8px;
     border-radius: 5px;
+    opacity: 0;
   }
   
 
@@ -490,61 +491,33 @@ animation: night 45s linear infinite;
   padding: 40px;
   font-size: 13px;
   top: -30px; /* Регулируйте вертикальное положение облака, чтобы оно было спереди автомобиля */
-  left: 180%; /* Регулируйте горизонтальное положение облака по центру контейнера */
+  left: 220%; /* Регулируйте горизонтальное положение облака по центру контейнера */
   z-index: 10;
   display: inline-block; /* Для того чтобы ширина облака автоматически подстраивалась под содержимое */
 }
-
-#santa-claus {
-  width: auto; /* Установите подходящую ширину */
+.scrat{
   position: absolute;
-  top: 100px; /* Регулируйте вертикальную позицию по вашему усмотрению */
-  left: 700px; /* Регулируйте горизонтальную позицию по вашему усмотрению */
-animation: santaMove 25s linear infinite; /* 25s - время анимации, linear - тип анимации, infinite - бесконечное повторение */
-}
-
-@keyframes santaMove {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: 100%; /* Горизонтальная позиция, в которую Санта Клаус передвигается (в данном случае, до конца контейнера) */
-  }
-  
-  #ded {
-  width: auto; /* Установите подходящую ширину */
-  position: absolute;
-  top: 100px; /* Регулируйте вертикальную позицию по вашему усмотрению */
-  left: 700px; /* Регулируйте горизонтальную позицию по вашему усмотрению */
-animation: ded 25s linear infinite; /* 25s - время анимации, linear - тип анимации, infinite - бесконечное повторение */
-}
-
-@keyframes ded {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: 100%; /* Горизонтальная позиция, в которую Санта Клаус передвигается (в данном случае, до конца контейнера) */
-  }
-  
+  background-image: url('scrat.png');
+  background-size: contain; /* Изображение будет сохранять пропорции и вписываться в блок */
+  background-repeat: no-repeat; /* Запретить повторение фона */
+  width: 150px; /* Желаемая ширина изображения */
+  height: 150px;
+  margin-top: -30px;
+  z-index: 5;
 }
 
 </style>
-<link href="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/snow.min.css" rel="stylesheet">
 </head>
 <body>
-<script src="https://cdn.jsdelivr.net/gh/Alaev-Co/snowflakes/dist/Snow.min.js"></script>
-<script>
-	new Snow ();
-</script>
 <audio id="carAudio" src="car_sound.mp3"></audio>
 <div class="grass-background"></div>
-<h1 class="header">Winter Is Coming</h1>
+<h1 class="header">Ice Age</h1>
+<div class="scrat"></div> <!--Белка-->
 <div class="background-image">
 </div>
 <!-- <div class="sky-background"></div> <!-- Небесный фон -->
-<div class="background-image day"><img src="santa1.gif" alt="Санта Клаус" id="ded"></div><!-- Небесный фон -->
-<div class="background-image night"><img src="santa.gif" alt="Санта Клаус" id="santa-claus"></div><!-- Небесный фон -->
+<div class="background-image day"></div><!-- Небесный фон -->
+<div class="background-image night"></div><!-- Небесный фон -->
 <div id="snow-container"></div>
 
 <div>
@@ -554,7 +527,6 @@ animation: ded 25s linear infinite; /* 25s - время анимации, linear
     <option value="0">SOPHIA</option>
     <option value="1">GIORGIO</option>
     <option value="2">MIRKO</option>
-    <option value="3">GIANNI</option>
   </select>
   
   <label for="amount">Enter your deposit: </label>
@@ -594,7 +566,7 @@ animation: ded 25s linear infinite; /* 25s - время анимации, linear
   
   <div class="road-container">
       <div class="start-line"></div>
-      <div class="car george-car" id="car1">
+      <div class="car tom-car" id="car1">
         <div class="driver-info">
           <div class="driver-name">GIORGIO</div>
           <div class="driver-position">Position: 0%</div>
@@ -625,54 +597,32 @@ animation: ded 25s linear infinite; /* 25s - время анимации, linear
   
    <div class="road-container">
     
-      <div class="start-line"></div>
-      <div class="car chris-car" id="car3">
-        <div class="driver-info">
-          <div class="driver-name">GIANNI</div>
-          <div class="driver-position">Position: 0%</div>
-        </div>
-      </div>
-      <div class="flag" id="flag3"></div>
-      <div class="flag-text" id="flag-text3">VICTORY!</div>
-	  <div class="road" id="road4">
-    </div>
-		<div class="bushes"></div>
-  </div>
-  
-  </div>
 
 <script>
  var driversData = [
     {
       "name": "SOPHIA",
-      "roadLength": 65000,
+      "roadLength": 85000,
       "position": 0
     },
     {
       "name": "GIORGIO",
-      "roadLength": 65000,
+      "roadLength": 85000,
       "position": 0
     },
 	{
       "name": "MIRKO",
-      "roadLength": 20000,
+      "roadLength": 30000,
       "position": 0
     },
-	{
-      "name": "GIANNI",
-      "roadLength": 50000,
-      "position": 0
-    }
   ];
   
   // Создайте массив сообщений поддержки для водителя TOM
 var tomSupportMessages = [
-  "Merry Christmas!",
-  "Ho! Ho! Ho!",
-  "Let's not freeze!",
-  "Happy New Year!",
-  "Need to warm up!",
-  "Brrr...",
+  "Hurry up, Mirko!",
+  "Scrat, we're near!",
+  "Who wants a nut?",
+  "Ice Age!",
   // Добавьте другие сообщения поддержки для TOM
 ];
 
@@ -747,19 +697,15 @@ function moveCar(selectedDriver) {
 }
 
 // Обновляем позицию водителя Sophia
-driversData[0].position = 5775 / driversData[0].roadLength;
+driversData[0].position = 526 / driversData[0].roadLength;
 // Обновляем позицию водителя Giorgio
-driversData[1].position = 79172 / driversData[1].roadLength;
+driversData[1].position = 0 / driversData[1].roadLength;
 // Обновляем позицию водителя Mirko
-driversData[2].position = 9369 / driversData[2].roadLength;
-// Обновляем позицию водителя Gianni
-driversData[3].position =  5155 / driversData[3].roadLength;
-
+driversData[2].position = 0 / driversData[2].roadLength;
 
 moveCar(0); // Переместить автомобиль первого водителя
 moveCar(1); // Переместить автомобиль второго водителя
 moveCar(2); // Переместить автомобиль второго водителя
-moveCar(3); // Переместить автомобиль второго водителя
 
   function showVictory(driverIndex) {
     var flag = document.getElementById("flag" + driverIndex);
